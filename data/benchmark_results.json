@@ -1,0 +1,385 @@
+{
+  "generated_at": "2026-05-27T03:48:28.655762+00:00",
+  "scenarios": [
+    {
+      "label": "DetectorEvent \u2014 light corruption",
+      "domain": "detector",
+      "n": 500,
+      "seed": 42,
+      "injected_fail_corruptions": 39,
+      "injected_warn_corruptions": 42,
+      "total_datums": 500,
+      "trusted": 419,
+      "untrusted": 81,
+      "trust_rate": 0.838,
+      "true_positives": 39,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "detection_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "total_warnings": 0,
+      "warnings_on_trusted_datums": 0,
+      "replay_fidelity_class": "IDENTICAL",
+      "replay_fidelity_rate": 1.0,
+      "invariant_failure_rates": [
+        {
+          "invariant_name": "adc_saturation_warning",
+          "total_checks": 490,
+          "failures": 24,
+          "failure_rate": 0.04897959183673469
+        },
+        {
+          "invariant_name": "quality_flag_bad",
+          "total_checks": 490,
+          "failures": 19,
+          "failure_rate": 0.03877551020408163
+        },
+        {
+          "invariant_name": "detector_channel_valid",
+          "total_checks": 490,
+          "failures": 15,
+          "failure_rate": 0.030612244897959183
+        },
+        {
+          "invariant_name": "energy_gev_positive",
+          "total_checks": 490,
+          "failures": 14,
+          "failure_rate": 0.02857142857142857
+        },
+        {
+          "invariant_name": "energy_distribution_drift",
+          "total_checks": 490,
+          "failures": 14,
+          "failure_rate": 0.02857142857142857
+        },
+        {
+          "invariant_name": "detector_no_null_critical_fields",
+          "total_checks": 500,
+          "failures": 10,
+          "failure_rate": 0.02
+        },
+        {
+          "invariant_name": "provenance_present",
+          "total_checks": 500,
+          "failures": 0,
+          "failure_rate": 0.0
+        },
+        {
+          "invariant_name": "no_nonfinite_values",
+          "total_checks": 490,
+          "failures": 0,
+          "failure_rate": 0.0
+        },
+        {
+          "invariant_name": "detector_required_fields",
+          "total_checks": 500,
+          "failures": 0,
+          "failure_rate": 0.0
+        },
+        {
+          "invariant_name": "adc_in_range",
+          "total_checks": 490,
+          "failures": 0,
+          "failure_rate": 0.0
+        }
+      ],
+      "failure_breakdown": {
+        "quality_flag_bad": 19,
+        "energy_gev_positive": 14,
+        "energy_distribution_drift": 14,
+        "detector_no_null_critical_fields": 10,
+        "detector_channel_valid": 15,
+        "adc_saturation_warning": 24
+      }
+    },
+    {
+      "label": "DetectorEvent \u2014 heavy corruption",
+      "domain": "detector",
+      "n": 500,
+      "seed": 43,
+      "injected_fail_corruptions": 176,
+      "injected_warn_corruptions": 66,
+      "total_datums": 500,
+      "trusted": 258,
+      "untrusted": 242,
+      "trust_rate": 0.516,
+      "true_positives": 176,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "detection_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "total_warnings": 0,
+      "warnings_on_trusted_datums": 0,
+      "replay_fidelity_class": "IDENTICAL",
+      "replay_fidelity_rate": 1.0,
+      "invariant_failure_rates": [
+        {
+          "invariant_name": "energy_distribution_drift",
+          "total_checks": 448,
+          "failures": 84,
+          "failure_rate": 0.1875
+        },
+        {
+          "invariant_name": "energy_gev_positive",
+          "total_checks": 448,
+          "failures": 64,
+          "failure_rate": 0.14285714285714285
+        },
+        {
+          "invariant_name": "adc_saturation_warning",
+          "total_checks": 448,
+          "failures": 64,
+          "failure_rate": 0.14285714285714285
+        },
+        {
+          "invariant_name": "detector_channel_valid",
+          "total_checks": 448,
+          "failures": 50,
+          "failure_rate": 0.11160714285714286
+        },
+        {
+          "invariant_name": "quality_flag_bad",
+          "total_checks": 448,
+          "failures": 33,
+          "failure_rate": 0.07366071428571429
+        },
+        {
+          "invariant_name": "detector_no_null_critical_fields",
+          "total_checks": 500,
+          "failures": 31,
+          "failure_rate": 0.062
+        },
+        {
+          "invariant_name": "detector_required_fields",
+          "total_checks": 500,
+          "failures": 21,
+          "failure_rate": 0.042
+        },
+        {
+          "invariant_name": "adc_in_range",
+          "total_checks": 448,
+          "failures": 14,
+          "failure_rate": 0.03125
+        },
+        {
+          "invariant_name": "provenance_present",
+          "total_checks": 500,
+          "failures": 0,
+          "failure_rate": 0.0
+        },
+        {
+          "invariant_name": "no_nonfinite_values",
+          "total_checks": 448,
+          "failures": 0,
+          "failure_rate": 0.0
+        }
+      ],
+      "failure_breakdown": {
+        "detector_channel_valid": 50,
+        "quality_flag_bad": 33,
+        "energy_gev_positive": 64,
+        "energy_distribution_drift": 84,
+        "detector_no_null_critical_fields": 31,
+        "adc_saturation_warning": 64,
+        "detector_required_fields": 21,
+        "adc_in_range": 14
+      }
+    },
+    {
+      "label": "DetectorEvent \u2014 clean (no corruption)",
+      "domain": "detector",
+      "n": 300,
+      "seed": 44,
+      "injected_fail_corruptions": 0,
+      "injected_warn_corruptions": 0,
+      "total_datums": 300,
+      "trusted": 300,
+      "untrusted": 0,
+      "trust_rate": 1.0,
+      "true_positives": 0,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "detection_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "total_warnings": 0,
+      "warnings_on_trusted_datums": 0,
+      "replay_fidelity_class": "IDENTICAL",
+      "replay_fidelity_rate": 1.0,
+      "invariant_failure_rates": [
+        {
+          "invariant_name": "quality_flag_bad",
+          "total_checks": 300,
+          "failures": 0,
+          "failure_rate": 0.0
+        },
+        {
+          "invariant_name": "provenance_present",
+          "total_checks": 300,
+          "failures": 0,
+          "failure_rate": 0.0
+        },
+        {
+          "invariant_name": "no_nonfinite_values",
+          "total_checks": 300,
+          "failures": 0,
+          "failure_rate": 0.0
+        },
+        {
+          "invariant_name": "energy_gev_positive",
+          "total_checks": 300,
+          "failures": 0,
+          "failure_rate": 0.0
+        },
+        {
+          "invariant_name": "energy_distribution_drift",
+          "total_checks": 300,
+          "failures": 0,
+          "failure_rate": 0.0
+        },
+        {
+          "invariant_name": "detector_required_fields",
+          "total_checks": 300,
+          "failures": 0,
+          "failure_rate": 0.0
+        },
+        {
+          "invariant_name": "detector_no_null_critical_fields",
+          "total_checks": 300,
+          "failures": 0,
+          "failure_rate": 0.0
+        },
+        {
+          "invariant_name": "detector_channel_valid",
+          "total_checks": 300,
+          "failures": 0,
+          "failure_rate": 0.0
+        },
+        {
+          "invariant_name": "adc_saturation_warning",
+          "total_checks": 300,
+          "failures": 0,
+          "failure_rate": 0.0
+        },
+        {
+          "invariant_name": "adc_in_range",
+          "total_checks": 300,
+          "failures": 0,
+          "failure_rate": 0.0
+        }
+      ],
+      "failure_breakdown": {}
+    },
+    {
+      "label": "GenericTabular \u2014 moderate corruption",
+      "domain": "tabular",
+      "n": 400,
+      "seed": 99,
+      "injected_fail_corruptions": 60,
+      "injected_warn_corruptions": 0,
+      "total_datums": 400,
+      "trusted": 351,
+      "untrusted": 49,
+      "trust_rate": 0.8775,
+      "true_positives": 40,
+      "false_negatives": 20,
+      "false_positives": 1,
+      "detection_rate": 0.6666666666666666,
+      "false_positive_rate": 0.002932551319648094,
+      "total_warnings": 0,
+      "warnings_on_trusted_datums": 0,
+      "replay_fidelity_class": "IDENTICAL",
+      "replay_fidelity_rate": 1.0,
+      "invariant_failure_rates": [
+        {
+          "invariant_name": "statistical_drift_value",
+          "total_checks": 378,
+          "failures": 27,
+          "failure_rate": 0.07142857142857142
+        },
+        {
+          "invariant_name": "range_value",
+          "total_checks": 378,
+          "failures": 22,
+          "failure_rate": 0.0582010582010582
+        },
+        {
+          "invariant_name": "no_null_required_fields",
+          "total_checks": 400,
+          "failures": 22,
+          "failure_rate": 0.055
+        },
+        {
+          "invariant_name": "required_fields_present",
+          "total_checks": 400,
+          "failures": 0,
+          "failure_rate": 0.0
+        },
+        {
+          "invariant_name": "provenance_present",
+          "total_checks": 400,
+          "failures": 0,
+          "failure_rate": 0.0
+        }
+      ],
+      "failure_breakdown": {
+        "no_null_required_fields": 22,
+        "range_value": 22,
+        "statistical_drift_value": 27
+      }
+    },
+    {
+      "label": "GenericTabular \u2014 clean (no corruption)",
+      "domain": "tabular",
+      "n": 200,
+      "seed": 100,
+      "injected_fail_corruptions": 0,
+      "injected_warn_corruptions": 0,
+      "total_datums": 200,
+      "trusted": 200,
+      "untrusted": 0,
+      "trust_rate": 1.0,
+      "true_positives": 0,
+      "false_negatives": 0,
+      "false_positives": 0,
+      "detection_rate": 1.0,
+      "false_positive_rate": 0.0,
+      "total_warnings": 0,
+      "warnings_on_trusted_datums": 0,
+      "replay_fidelity_class": "IDENTICAL",
+      "replay_fidelity_rate": 1.0,
+      "invariant_failure_rates": [
+        {
+          "invariant_name": "statistical_drift_value",
+          "total_checks": 200,
+          "failures": 0,
+          "failure_rate": 0.0
+        },
+        {
+          "invariant_name": "required_fields_present",
+          "total_checks": 200,
+          "failures": 0,
+          "failure_rate": 0.0
+        },
+        {
+          "invariant_name": "range_value",
+          "total_checks": 200,
+          "failures": 0,
+          "failure_rate": 0.0
+        },
+        {
+          "invariant_name": "provenance_present",
+          "total_checks": 200,
+          "failures": 0,
+          "failure_rate": 0.0
+        },
+        {
+          "invariant_name": "no_null_required_fields",
+          "total_checks": 200,
+          "failures": 0,
+          "failure_rate": 0.0
+        }
+      ],
+      "failure_breakdown": {}
+    }
+  ]
+}
