@@ -62,7 +62,8 @@ data = [
 result = pipeline.run(data)
 result.print_summary()
 result.failure_report.print()
-```
+
+In this example, `data` is a Python `list` of `dict` objects, where each `dict` is one record.
 
 For a generic dataset with a user-declared schema:
 
