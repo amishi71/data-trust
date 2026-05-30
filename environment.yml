@@ -1,21 +1,54 @@
-name: data-trust-system
-channels:
-  - conda-forge
-  - defaults
-dependencies:
-  - python=3.11
-  - numpy>=1.24
-  - pandas>=2.0
-  - scipy>=1.11
-  - pyyaml>=6.0
-  - pytest>=7.4
-  - pip
-  - pip:
-    - mermaid-diagrams==0.1
+# environment.yml
+# Scientific Data Trust System — v0.1
+#
+# This is the authoritative environment specification referenced by
+# TRUST_CONTRACT.md §6 and captured in every EnvironmentSnapshot.
+#
+# Installation (pip, no conda required):
+#   python3 -m venv .venv
+#   source .venv/bin/activate
+#   pip install -r requirements.txt
+#
+# Verified on: Python 3.14.4 / macOS 14 ARM64 / 2026-05-30
+# All packages installed from pre-built wheels — no source compilation required.
+#
+# conda is NOT required. The original environment.yml listed conda + Python 3.11
+# which did not match the actual execution environment. This file supersedes it.
+# See FAILURE_LOG.md entry 003 and CHANGELOG.md for resolution notes.
 
-# PyROOT (CERN ROOT framework) is not included here.
-# Reason: ROOT installation is platform-dependent and not required
-# for the core trust contract claim. The DetectorEventDomain runs
-# on synthetic Python-native data in v0.1.
+name: data-trust-system
+
+# --- Verified working versions (from pip freeze, 2026-05-30) ---
+dependencies:
+  - python=3.14.4
+  - numpy=2.4.6
+  - pandas=3.0.3
+  - scipy=1.17.1
+  - pyyaml=6.0.3
+  - pytest=9.0.3
+  - pluggy=1.6.0
+  - packaging=26.2
+  - python-dateutil=2.9.0.post0
+  - six=1.17.0
+  - pygments=2.20.0
+  - iniconfig=2.3.0
+
+# --- Minimum viable versions (lower bounds for compatibility) ---
+# minimum:
+#   python: "3.11"
+#   numpy: "1.24"
+#   pandas: "2.0"
+#   scipy: "1.11"
+#   pyyaml: "6.0"
+#   pytest: "7.4"
+
+# --- Excluded ---
+# PyROOT (CERN ROOT framework): platform-dependent, not required for v0.1.
+# The DetectorEventDomain runs on synthetic Python-native data.
 # To add ROOT: conda install -c conda-forge root=6.28
-# See ASSUMPTIONS.md §3 and DECISION_LOG.md Entry 005.
+# See ASSUMPTIONS.md §3 and DECISION_LOG.md entry 005.
+
+# --- Platform notes ---
+# Verified: macOS 14 ARM64 (Apple Silicon), Python 3.14.4, pip 26.0.1
+# Not yet verified: Linux x86_64, Windows
+# Replay fidelity is guaranteed within the same platform family (see ASSUMPTIONS.md §1.1)

@@ -31,11 +31,12 @@ Four things, unified under one contract:
 ## Installation
 
 ```bash
-conda env create -f environment.yml
-conda activate data-trust-system
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
-PyROOT is not required for v0.1. See `environment.yml` for the full dependency list.
+Verified on Python 3.14.4 / macOS ARM64. See `environment.yml` for the full pinned dependency specification. PyROOT is not required for v0.1.
 
 ---
 
@@ -79,12 +80,26 @@ pipeline = DataTrustPipeline(domain=domain, operator="analyst")
 ## Running the tests
 
 ```bash
-python tests/test_end_to_end.py      # full integration test with printed output
-python tests/benchmark.py            # detection rate and replay fidelity benchmarks
-pytest tests/                        # unit tests
+python3 tests/test_end_to_end.py   # full integration test with printed output
+python3 tests/benchmark.py         # detection rates and replay fidelity benchmarks
+pytest tests/                      # unit tests (18 passed)
 ```
 
 Benchmark results are written to `data/benchmark_results.json`.
+
+---
+
+## Benchmark results (v0.1)
+
+| Scenario                             | N   | Detection | FP rate | Replay    |
+| ------------------------------------ | --- | --------- | ------- | --------- |
+| DetectorEvent — light corruption     | 500 | 100%      | 0.0%    | IDENTICAL |
+| DetectorEvent — heavy corruption     | 500 | 100%      | 0.0%    | IDENTICAL |
+| DetectorEvent — clean                | 300 | 100%      | 0.0%    | IDENTICAL |
+| GenericTabular — moderate corruption | 400 | 66.7%     | 0.3%    | IDENTICAL |
+| GenericTabular — clean               | 200 | 100%      | 0.0%    | IDENTICAL |
+
+The 66.7% detection rate on generic tabular data is a domain-knowledge gap, not a system failure — see `DOMAIN_SPEC.md` and `TECHNICAL_REPORT.md` §4.3.
 
 ---
 
@@ -96,7 +111,10 @@ ASSUMPTIONS.md         ← documented limitations and known gaps
 DECISION_LOG.md        ← architectural decisions with rationale
 FAILURE_LOG.md         ← real failures found during development
 DOMAIN_SPEC.md         ← specification of built-in data domains
+TECHNICAL_REPORT.md    ← full evaluation and findings
+CHANGELOG.md           ← verified runs and open items
 environment.yml        ← pinned dependency specification
+requirements.txt       ← pip install list
 
 src/
   pipeline.py          ← unified entry point (DataTrustPipeline)
@@ -143,17 +161,17 @@ See `ASSUMPTIONS.md` for the full list. Critical ones:
 - **Semantic correctness is out of scope.** A `TRUSTED` verdict means structurally sound, bounds-clean, provenance-intact. It does not mean the physics is correct.
 - **Replay fidelity is within-platform only.** Cross-platform floating-point divergence is documented, not hidden.
 - **Monotonicity is not enforced in batch mode.** See FAILURE_LOG.md entry 001. Open before v1.0.0.
-- **The `GenericTabularDomain` detects 67% of injected corruption.** This is a domain-knowledge gap, not a system failure. See DOMAIN_SPEC.md.
+- **The `GenericTabularDomain` detects 66.7% of injected corruption.** This is a domain-knowledge gap, not a system failure. See DOMAIN_SPEC.md.
 
 ---
 
 ## Documentation map
 
-| Document | What it answers |
-|----------|----------------|
-| `TRUST_CONTRACT.md` | What does "trusted" mean, formally? |
-| `ASSUMPTIONS.md` | What does the system not promise? |
-| `DECISION_LOG.md` | Why was X built this way? |
-| `FAILURE_LOG.md` | What broke, and what was done about it? |
-| `DOMAIN_SPEC.md` | What does each domain check, and how well? |
-
+| Document              | What it answers                                       |
+| --------------------- | ----------------------------------------------------- |
+| `TRUST_CONTRACT.md`   | What does "trusted" mean, formally?                   |
+| `TECHNICAL_REPORT.md` | Does the system work, and what did building it teach? |
+| `ASSUMPTIONS.md`      | What does the system not promise?                     |
+| `DECISION_LOG.md`     | Why was X built this way?                             |
+| `FAILURE_LOG.md`      | What broke, and what was done about it?               |
+| `DOMAIN_SPEC.md`      | What does each domain check, and how well?            |
