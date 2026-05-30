@@ -1,0 +1,21 @@
+name: data-trust-system
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy>=1.24
+  - pandas>=2.0
+  - scipy>=1.11
+  - pyyaml>=6.0
+  - pytest>=7.4
+  - pip
+  - pip:
+    - mermaid-diagrams==0.1
+
+# PyROOT (CERN ROOT framework) is not included here.
+# Reason: ROOT installation is platform-dependent and not required
+# for the core trust contract claim. The DetectorEventDomain runs
+# on synthetic Python-native data in v0.1.
+# To add ROOT: conda install -c conda-forge root=6.28
+# See ASSUMPTIONS.md §3 and DECISION_LOG.md Entry 005.
